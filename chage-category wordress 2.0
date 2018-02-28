@@ -1,0 +1,48 @@
+
+add_action( 'click_move_download_tax', 'move_download_tax' );
+function move_download_tax() {
+
+
+
+ $args = array(
+        'posts_per_page' => -1,
+        'post_type' => 'edd_payment',
+        'date_query'    => array(
+            'column'  => 'post_date',
+            'after'   => '- 1 days'
+        )
+    );
+    $query = get_posts( $args );
+    $arr_id = array();
+    foreach ($query as $post) {
+        $post_id = $post->ID;
+        $meta_payment = get_post_meta($post_id,'_edd_payment_meta');
+        $downloadID = $meta_payment[0]['downloads'][0]['id'];
+        $terms = wp_get_post_terms($downloadID, 'download_category');
+        $move = true;
+		
+        foreach ($terms as $term) {
+		$id_acc_ban_gan_day =  get_option('pyre_custome_show_acc_ban_gan_day');
+$id_acc_ban_gan_day = (int)$id_acc_ban_gan_day;
+            if ( $term->term_id != $id_acc_ban_gan_day){
+                $move = false;
+                break;
+            }
+        }
+        if ($move){
+          
+         
+          
+               $id_custome_show_acc_da_ban =  get_option('pyre_custome_show_acc_da_ban');
+		   $id_custome_show_acc_da_ban = (int)$id_custome_show_acc_da_ban;
+         
+    wp_set_post_terms($downloadID, $id_custome_show_acc_da_ban, 'download_category', false );   //acc da ban
+           
+           
+        }
+    }
+	
+	
+	
+	
+}
