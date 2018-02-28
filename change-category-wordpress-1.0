@@ -1,0 +1,130 @@
+
+		$id_danhmuc =  get_option('pyre_custome_show_danhmuc_id');
+
+		$id_acc_ban_gan_day =  get_option('pyre_custome_show_acc_ban_gan_day');
+
+		$id_custome_show_acc_da_ban =  get_option('pyre_custome_show_acc_da_ban');
+
+
+add_action('init', 'update_download_taxonomy');
+
+function update_download_taxonomy() {
+
+global $id_danhmuc,  $id_acc_ban_gan_day;
+
+$id_acc_ban_gan_day =  get_option('pyre_custome_show_acc_ban_gan_day');
+$id_acc_ban_gan_day = (int)$id_acc_ban_gan_day;
+
+
+    $terms = get_terms( 'download_category', 'orderby=term_id&hide_empty=1' );
+
+    foreach ($terms as $key=>$term) :
+
+	$id_danhmuc =  get_option('pyre_custome_show_danhmuc_id');
+
+$id_danhmuc = (int)$id_danhmuc;
+
+        if ($term->term_id == $id_danhmuc) : // chua ban
+
+            $product_args = array(
+
+                'post_per_page' => -1,
+
+                'post_type' => 'download',
+
+                'tax_query' => array(
+
+                    array(
+
+                        'taxonomy' => 'download_category',
+
+                        'field' => 'id',
+
+                        'terms' => $term->term_id
+
+                    )
+
+                ),
+
+            );
+
+            $products = new WP_Query($product_args);
+
+            while ($products->have_posts()) :  ; $products->the_post();
+
+                $downloaded = edd_get_download_sales_stats( get_the_ID() );
+
+                $download_limit = edd_pl_get_file_purchase_limit( get_the_ID(), 'standard' );
+
+  if ( (int)$downloaded == (int)$download_limit ) wp_set_post_terms(get_the_ID(), $id_acc_ban_gan_day, 'download_category', false );
+
+            endwhile;
+
+   endif;
+
+    endforeach;
+
+}
+
+
+
+add_action( 'click_move_download_tax', 'move_download_tax' );
+
+function move_download_tax() {
+
+    $args = array(
+
+        'posts_per_page' => -1,
+
+        'post_type' => 'download',
+
+        'date_query'    => array(
+
+            'column'  => 'post_date',
+
+        )
+
+    );
+
+    $query = get_posts( $args );
+
+    //$arr_id = array();
+
+    foreach ($query as $post) {
+
+        $post_id = $post->ID;
+
+       //$meta_payment = get_post_meta($post_id,'_edd_payment_meta');
+
+      //  $downloadID = $meta_payment[0]['downloads'][0]['id'];
+
+       // $terms = wp_get_post_terms($downloadID, 'download_category');
+
+		  $terms = wp_get_post_terms($post_id, 'download_category');
+
+        $move = false;
+
+        foreach ($terms as $term) {
+
+            if ( $term->term_id == $id_acc_ban_gan_day){ //acc ban gan day
+
+                $move = true;
+
+                break;
+
+            }
+
+        }
+
+ if ($move){
+          $id_custome_show_acc_da_ban =  get_option('pyre_custome_show_acc_da_ban');
+		   $id_custome_show_acc_da_ban = (int)$id_custome_show_acc_da_ban;
+         
+
+    wp_set_post_terms($post_id, $id_custome_show_acc_da_ban, 'download_category', false );   //acc da ban
+
+     
+
+    }     }
+
+}
