@@ -1,0 +1,75 @@
+
+<link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/username_checker.css" type="text/css" />
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/
+libs/jquery/1.3.0/jquery.min.js"></script>
+
+
+<script type="text/javascript">
+var checkuser = '<?php bloginfo('template_url'); ?>/check-modify.php';
+</script>
+	
+	
+
+
+<SCRIPT type="text/javascript">
+var jq130 = jQuery.noConflict(true);
+<!--
+/*
+Credits: Bit Repository
+Source: http://www.bitrepository.com/web-programming/ajax/giamgia-checker.html 
+*/
+
+pic1 = new Image(16, 16); 
+pic1.src = "loader.gif";
+
+jq130(document).ready(function(){
+
+jq130("#giamgia").change(function() { 
+
+var usr = jq130("#giamgia").val();
+
+if(usr.length >= 1)
+{
+jq130("#status").html('<img style="float: left;" src="<?php bloginfo('template_url'); ?>/loader.gif" class="success" align="absmiddle">&nbsp;Đang kiểm tra...');
+setTimeout(function(){
+    jq130.ajax({  
+    type: "POST",  
+    url: checkuser,  
+    data: "giamgia="+ usr,  
+    success: function(msg){  
+   
+   jq130("#status").ajaxComplete(function(event, request, settings){ 
+
+	if(msg == 'OK')
+	{ 
+        jq130("#giamgia").removeClass('object_error'); // if necessary
+		jq130("#giamgia").addClass("object_ok");
+		jq130(this).html('<span class="error">&nbsp;Mã giảm giá không tồn tại <img src="<?php bloginfo('template_url'); ?>/xtick.gif" align="absmiddle"></span>');
+	}  
+	else  
+	{  
+		jq130("#giamgia").removeClass('object_ok'); // if necessary
+		jq130("#giamgia").addClass("object_error");
+		jq130(this).html(msg);
+	}  
+   
+   });
+
+ } 
+   
+  }); },1000);
+
+}
+else
+	{
+	jq130("#status").html('<font color="green"><span style="font-size:9px;">Bạn không sử dụng mã giảm giá</span></font>');
+	jq130("#giamgia").removeClass('object_ok'); // if necessary
+	jq130("#giamgia").addClass("object_error");
+	}
+
+});
+
+});
+
+//-->
+</SCRIPT>
