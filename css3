@@ -1,0 +1,18 @@
+ @media screen and (min-width: 986px){ /*nhung gia tri lon hon se thuc thi*/
+
+ 	.mobishow{ display: none!important; }
+ }
+
+
+@media only screen and (max-width: 985px) and (min-width: 769px){
+.mobishow{ display: block!important; position:absolute; top:0px;left:180px;top:10px }
+
+} /*khung gia tri tu 769 den 985 se thuc thi */
+@media screen and (max-width: 768px){/*nhung gia tri nho hon 768 se thuc thi*/
+
+.mobishow{display: block !important;position: absolute;top:0px !important;right:0;}
+}
+
+@media screen and (max-width: 554px){
+	.mobishow{ display: none!important; }
+}		
