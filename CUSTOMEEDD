@@ -2,6 +2,10 @@ I.easy-digital-downloads
 - easy-digital-downloads/templates/history-purchases.php  - Dòng 18, Dòng 60 - 70  Chỉnh login và name
 - easy-digital-downloads/templates/shortcode-receipt.php - Dòng 227 dòng 242 <?php include('show-lic.php'); ?> 
 -/easy-digital-downloads/includes/checkout/template.php Đòng Dòng 800 Chỉnh Login
+-/easy-digital-downloads/includes/process-purchase.php chỉnh cổng getway
+(
+$purchase_data['gateway'] = 'card_gateway';
+$_POST['edd-gateway'] = 'card_gateway';)
 
 II. edd-purchase-form-user-info 
 Chỉnh 4 file
