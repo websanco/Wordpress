@@ -14,3 +14,23 @@ edd-purchase-form-user-info/inc/
 -Chỉnh checkout/template.php
 _ Chỉnh payments/function.php
 
+
+GAME
+
+easy-digital-downloads\includes\admin\downloads/ metabox 
+<th><?php _e( 'File URL', 'easy-digital-downloads' ); ?></th> 610 remove
+
+	<span class="edd_upload_file">
+				<a href="#" data-uploader-title="<?php _e( 'Insert File', 'easy-digital-downloads' ); ?>" data-uploader-button-text="<?php _e( 'Insert', 'easy-digital-downloads' ); ?>" class="edd_upload_file_button" onclick="return false;"><?php _e( 'Upload a File', 'easy-digital-downloads' ); ?></a>
+			</span>
+      
+      708 -710
+      
+      
+      <!--
+	<td>
+		<span class="edd_file_id"><?php //echo $key; ?></span>
+	</td>-->
+  
+  733 -736
+
