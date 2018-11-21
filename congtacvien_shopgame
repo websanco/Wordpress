@@ -1,0 +1,42 @@
+function wps_remove_role() {
+    remove_role( 'editor' );
+    remove_role( 'author' );
+    remove_role( 'contributor' );
+	remove_role( 'shop_manager' );
+	remove_role( 'shop_accountant' );
+	remove_role( 'shop_worker' );
+	remove_role( 'shop_vendor' );
+	remove_role( 'congtacvien' );
+	remove_role( 'cong_tac_vien' );
+}
+add_action( 'init', 'wps_remove_role' );
+add_action('admin_init', 'wps_remove_role');
+
+
+add_action( 'init', 'edd_remove_role',1 );
+add_action('admin_init', 'edd_remove_role',1);
+function edd_remove_role() {
+	$wp_roles = new WP_Roles(); 
+$wp_roles->remove_role('shop_vendor');
+	
+}
+
+function congtacvien_shopgame() {  
+ 
+    //add the new user role
+    add_role(
+    'cong_tac_vien_shop_game',
+    __( 'Cộng Tác Viên Shop Game' ),
+        array(
+            'read'         => true,
+            'upload_files' => true,
+			'edit_private_products' => true,
+			'edit_products' => true,
+			'edit_published_products' => true,
+			'publish_products' => true,
+			'read_private_products' => true
+        )
+    );
+ 
+}
+add_action('admin_init', 'congtacvien_shopgame');
