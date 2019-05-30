@@ -19,3 +19,7 @@ function tomjn_only_upload_for_admin( $file ) {
     return $file;
 }
 add_filter( 'wp_handle_upload_prefilter', 'tomjn_only_upload_for_admin' );
+
+
+
+ date_default_timezone_set('Asia/Ho_Chi_Minh');  
