@@ -2,19 +2,7 @@
 <FileZilla3 version="3.35.2" platform="windows">
 	<Queue>
 		<Server>
-			<Host>cdnpro.sgp1.digitaloceanspaces.com</Host>
-			<Port>443</Port>
-			<Protocol>7</Protocol>
-			<Type>0</Type>
-			<User>F3P5QMY6KN6SWFY7PWE3</User>
-			<Pass encoding="base64">aVQ4SWFQbUd6ckpDekYrMGlrRFFTbm04eUtlU0lNZDlocUlnemE4Mk9NWQ==</Pass>
-			<Logontype>1</Logontype>
-			<TimezoneOffset>0</TimezoneOffset>
-			<PasvMode>MODE_DEFAULT</PasvMode>
-			<MaximumMultipleConnections>0</MaximumMultipleConnections>
-			<EncodingType>Auto</EncodingType>
-			<BypassProxy>0</BypassProxy>
-			<Name>New site</Name>
+			
 			<File>
 				<LocalFile>C:\Users\dell\Desktop\build\wordpress-cdn\wp-admin\css\about-rtl.min.css</LocalFile>
 				<RemoteFile>about-rtl.min.css</RemoteFile>
