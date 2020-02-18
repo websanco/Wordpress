@@ -1,0 +1,42 @@
+wp-includes/ms-functions.php
+
+function newuser_notify_siteadmin( $user_id ) {
+	if ( get_site_option( 'registrationnotification' ) != 'yes' ) {
+		return false;
+	}
+
+	$email = get_site_option( 'admin_email' );
+
+	if ( is_email( $email ) == false ) {
+		return false;
+	}
+
+	$user = get_userdata( $user_id );
+
+	$options_site_url = esc_url( network_admin_url( 'settings.php' ) );
+	/* translators: New user notification email. 1: User login, 2: User IP address, 3: Settings screen URL */
+	$msg = sprintf(
+		__(
+			'New User: %1$s
+Remote IP address: %2$s
+
+Disable these notifications: %3$s'
+		),
+		$user->user_login,
+		wp_unslash( $_SERVER['REMOTE_ADDR'] ),
+		$options_site_url
+	);
+
+	/**
+	 * Filters the message body of the new user activation email sent
+	 * to the network administrator.
+	 *
+	 * @since MU (3.0.0)
+	 *
+	 * @param string  $msg  Email body.
+	 * @param WP_User $user WP_User instance of the new user.
+	 */
+	$msg = apply_filters( 'newuser_notify_siteadmin', $msg, $user );
+	wp_mail( $email, sprintf( __( 'New User Registration: %s' ), $user->user_login ), $msg );
+	return true;
+}
