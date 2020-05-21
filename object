@@ -1,0 +1,79 @@
+object(WC_Order)#18206 (14) {
+  ["order_type"]=>
+  string(6) "simple"
+  ["id"]=>
+  int(677)
+  ["post"]=>
+  object(WP_Post)#18195 (24) {
+    ["ID"]=>
+    int(677)
+    ["post_author"]=>
+    string(1) "1"
+    ["post_date"]=>
+    string(19) "2020-05-21 06:21:54"
+    ["post_date_gmt"]=>
+    string(19) "2020-05-21 06:21:54"
+    ["post_content"]=>
+    string(0) ""
+    ["post_title"]=>
+    string(50) "Order – Tháng Năm 20, 2020 @ 11:21 Chiều"
+    ["post_excerpt"]=>
+    string(0) ""
+    ["post_status"]=>
+    string(10) "wc-pending"
+    ["comment_status"]=>
+    string(4) "open"
+    ["ping_status"]=>
+    string(6) "closed"
+    ["post_password"]=>
+    string(19) "order_5ec61e02c7ff6"
+    ["post_name"]=>
+    string(28) "don-hang-may-21-2020-0121-pm"
+    ["to_ping"]=>
+    string(0) ""
+    ["pinged"]=>
+    string(0) ""
+    ["post_modified"]=>
+    string(19) "2020-05-21 06:21:54"
+    ["post_modified_gmt"]=>
+    string(19) "2020-05-21 06:21:54"
+    ["post_content_filtered"]=>
+    string(0) ""
+    ["post_parent"]=>
+    int(0)
+    ["guid"]=>
+    string(54) "http://pro.khogiaodien.net/?post_type=shop_order&p=677"
+    ["menu_order"]=>
+    int(0)
+    ["post_type"]=>
+    string(10) "shop_order"
+    ["post_mime_type"]=>
+    string(0) ""
+    ["comment_count"]=>
+    string(1) "0"
+    ["filter"]=>
+    string(3) "raw"
+  }
+  ["order_date"]=>
+  string(19) "2020-05-21 06:21:54"
+  ["modified_date"]=>
+  string(19) "2020-05-21 06:21:54"
+  ["customer_message"]=>
+  string(0) ""
+  ["customer_note"]=>
+  string(0) ""
+  ["post_status"]=>
+  string(10) "wc-pending"
+  ["prices_include_tax"]=>
+  bool(false)
+  ["tax_display_cart"]=>
+  string(4) "excl"
+  ["display_totals_ex_tax"]=>
+  bool(true)
+  ["display_cart_ex_tax"]=>
+  bool(true)
+  ["formatted_billing_address":protected]=>
+  string(0) ""
+  ["formatted_shipping_address":protected]=>
+  string(0) ""
+}
