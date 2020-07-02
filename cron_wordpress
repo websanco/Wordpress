@@ -1,0 +1,44 @@
+STEP 1: MAKE CRON 	Interval
+
+
+add_filter( 'cron_schedules', 'wi_add_phut_schedule' ); 
+function wi_add_phut_schedule( $schedules ) {
+  $schedules['moiphut'] = array(
+    'interval' => 60, //7 days * 24 hours * 60 minutes * 60 seconds 300 giau
+    'display' => __( 'Mỗi PHÚT THÔI', 'google' )
+  );
+  /*
+  You could add another schedule by creating an additional array element
+  $schedules['biweekly'] = array(
+    'interval' => 7 * 24 * 60 * 60 * 2
+    'display' => __( 'Every Other Week', 'my-plugin-domain' )
+  );
+  */
+
+  return $schedules;
+}
+
+STEP 2: DO_ACCTION
+
+
+add_action( 'init', 'my_cron_new');
+
+register_activation_hook(__FILE__, 'my_cron_new');
+ 
+function my_cron_new() {
+    if (! wp_next_scheduled ( 'my_cron_event' )) {
+    wp_schedule_event(time(), 'moiphut', 'my_cron_event');
+    }
+}
+
+
+
+ 
+add_action('my_cron_event', 'do_this_cron');
+ 
+function do_this_cron() {
+    // do something every hour
+}
+
+
+
