@@ -1,0 +1,3 @@
+FIX UPLOAD
+yum install -y ntpdate
+ntpdate asia.pool.ntp.org
