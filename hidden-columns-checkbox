@@ -1,0 +1,104 @@
+
+
+
+/* Just use to find your screen_id */
+#add_filter('current_screen', 'the_current_screen' );
+function the_current_screen($screen) {
+    if ( defined( 'DOING_AJAX' ) && DOING_AJAX ) return $screen;
+    print_r($screen);
+    return $screen;
+}
+
+/* Just use to display the options id */
+#add_filter('current_screen', 'the_screen_options' );
+function the_screen_options() {
+    global $wp_meta_boxes;
+    $hidden = get_hidden_meta_boxes( 'nav-menus' );
+        var_dump( $hidden );
+}
+
+
+/* Show the all options by default in the menu page */
+add_action('admin_init', 'set_user_metaboxes');
+function set_user_metaboxes( $user_id = NULL ) {
+    // These are the metakeys we will need to update in the menu page
+    $meta_key['hidden'] = 'metaboxhidden_nav-menus';
+
+
+
+// So this can be used without hooking into user_register
+if ( !$user_id )
+    $user_id = get_current_user_id(); 
+
+// Set the default hiddens if it has not been set yet
+if ( get_user_meta( $user_id, $meta_key['hidden'], true) ) {
+    $meta_value = array('add-download_tag','add-post_tag','add-post_format');
+ update_user_meta( $user_id, $meta_key['hidden'], $meta_value );
+ //var_dump(get_user_meta( $user_id, $meta_key['hidden-columns'], true));
+}
+
+
+}
+
+add_filter( 'manage_nav-menus_columns', 'enable_nav_menu_description_by_default' );
+
+function enable_nav_menu_description_by_default( $columns )
+{
+    $desc_key = 'managenav-menuscolumnshidden';
+    $hidden   = get_user_option( $desc_key );
+    $user_id  = wp_get_current_user()->ID;
+
+    if ( ! $hidden )
+    {
+        update_user_option(
+            $user_id,
+            $desc_key,
+            array ( 0 => 'xfn' )
+        );
+    }
+    elseif ( FALSE !== ( $key = array_search( 'description', $hidden ) ) )
+    {
+        unset( $hidden[ $key ] );
+       // update_user_option( $user_id, $desc_key, $hidden );
+		 update_user_option(
+            $user_id,
+            $desc_key,
+            array ( 0 => 'link-target', 1 => 'xfn' )
+        );
+    }else{
+		
+		update_user_option(
+            $user_id,
+            $desc_key,
+            array ()
+        );
+	}
+
+    return $columns;
+}
+//action: hidden-columns
+#hidden: page-meta-robots,wpseo-score,wpseo-title,wpseo-metadesc,wpseo-focuskw
+
+
+function remove_all_pages_columns_to_fix_hidden($columns) {
+  unset($columns['cb']); // Remove checkbox column
+  unset($columns['title']); // Remove title column
+  return $columns;
+}
+#add_filter('manage_pages_columns', 'remove_all_pages_columns_to_fix_hidden');
+
+function delete_current_user_manageedit_pagecolumnshidden() {
+    	$user_id = get_current_user_id();
+    	$meta_key = 'manageedit-pagecolumnshidden';
+    	if( get_user_meta($user_id, $meta_key) ){
+			
+			//var_dump(get_user_meta($user_id, $meta_key));
+		}
+    	//var_dump(get_user_meta($user_id, $meta_key));	
+		update_user_option(
+            $user_id,
+            $meta_key,
+            array ('wpseo-focuskw','wpseo-metadesc','wpseo-title','page-meta-robots','wpseo-score')
+        );
+}
+    add_action ('admin_init', 'delete_current_user_manageedit_pagecolumnshidden');
