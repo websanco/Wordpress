@@ -1,0 +1,6 @@
+.wp-media-buttons img {
+    padding: 0 4px;
+    vertical-align: middle;
+    width: 100%;
+    height: auto;
+}
