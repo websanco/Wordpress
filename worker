@@ -1,0 +1,61 @@
+<?php header('Content-Type: application/javascript');
+function web_no_cache_php($id_array){
+	
+	
+	if($id_array=='default'){
+		$id_array = '5,8,9';
+	}else{
+		
+		//$id_array = '0';
+	}
+	$kq = false;
+
+$id_list = explode(",", $id_array);
+$blog_id = 2;
+//$blog_id = (string)$blog_id;
+ $allow_blog_id_list = $id_list;
+
+ if (in_array($blog_id, $allow_blog_id_list)) { 
+$kq = true;
+}else{
+$kq = false;
+}
+return $kq;
+}
+
+ $web_no_cache = false;
+$web_no_cache = web_no_cache_php('default');
+ if($web_no_cache){
+
+  }else{
+
+
+
+$str = <<<MY_MARKER
+importScripts('https://storage.googleapis.com/workbox-cdn/releases/5.1.2/workbox-sw.js');
+
+//Workbox Config
+workbox.setConfig({
+    debug: true //set to true if you want to see SW in action.
+});
+
+//Caching Everything Inside the Folder of our Item
+workbox.routing.registerRoute(
+    new RegExp('.*'),
+    new workbox.strategies.NetworkFirst()
+);
+
+
+console.log('Sticky Service Worker Running');
+
+//Learn more about Service Workers and Configurations
+//https://developers.google.com/web/tools/workbox/
+MY_MARKER;
+
+echo $str;
+  }
+
+
+htaccess
+
+RewriteRule ^(serviceworker.js)$ /worker.php?url=$1
