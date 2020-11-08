@@ -1,0 +1,1 @@
+html_entity_decode(get_option('pyre_analytics'),ENT_QUOTES | ENT_XML1, 'UTF-8');
