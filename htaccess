@@ -1,0 +1,4 @@
+<FilesMatch "^(?!.*\.(css|html)$).*$">
+   order deny,allow
+   deny from all
+</FilesMatch>
