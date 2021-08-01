@@ -1,0 +1,16 @@
+https://core.trac.wordpress.org/browser/tags/5.8/src/wp-includes/functions.wp-scripts.php#L20
+
+// add_filter( 'wp_scripts', 'control_wp_scripts', 99);
+
+function control_wp_scripts(){
+	global $wp_scripts;
+	
+	 foreach ( $wp_scripts as $wp_script ) {
+		 $content_url = 'https://static.domain-cdn.com/wp-content';
+		 $wp_script->content_url = $content_url;
+	 }
+	
+	 if ( ! ( $wp_scripts instanceof WP_Scripts ) ) {
+          $wp_scripts = new WP_Scripts();     }
+        return $wp_scripts;
+}
