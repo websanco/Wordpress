@@ -1,5 +1,5 @@
 https://core.trac.wordpress.org/browser/tags/5.8/src/wp-includes/functions.wp-scripts.php#L20
-https://core.trac.wordpress.org/browser/tags/5.8/src/wp-includes/class.wp-scripts.php
+https://core.trac.wordpress.org/browser/tags/5.8/src/wp-includes/class.wp-scripts.php 374 remove domain - add cdn tai day
 
 // add_filter( 'wp_scripts', 'control_wp_scripts', 99);
 
@@ -15,3 +15,384 @@ function control_wp_scripts(){
           $wp_scripts = new WP_Scripts();     }
         return $wp_scripts;
 }
+
+
+object(WP_Scripts)#8243 (19) {
+  ["base_url"]=>
+  string(25) "https://domain.com"
+  ["content_url"]=>
+  string(36) "https://domain.com/wp-content"
+  ["default_version"]=>
+  string(5) "5.2.4"
+  ["in_footer"]=>
+  array(43) {
+    [0]=>
+    string(11) "hoverIntent"
+    [1]=>
+    string(6) "common"
+    [2]=>
+    string(9) "admin-bar"
+    [3]=>
+    string(11) "svg-painter"
+    [4]=>
+    string(11) "wp-polyfill"
+    [5]=>
+    string(8) "wp-hooks"
+    [6]=>
+    string(9) "heartbeat"
+    [7]=>
+    string(13) "wp-auth-check"
+    [8]=>
+    string(9) "bootstrap"
+    [9]=>
+    string(14) "jquery-ui-core"
+    [10]=>
+    string(16) "jquery-ui-widget"
+    [11]=>
+    string(15) "jquery-ui-mouse"
+    [12]=>
+    string(19) "jquery-ui-resizable"
+    [13]=>
+    string(19) "jquery-ui-draggable"
+    [14]=>
+    string(16) "jquery-ui-button"
+    [15]=>
+    string(18) "jquery-ui-position"
+    [16]=>
+    string(16) "jquery-ui-dialog"
+    [17]=>
+    string(19) "jquery-ui-accordion"
+    [18]=>
+    string(14) "jquery-ui-tabs"
+    [19]=>
+    string(14) "jquery-ui-menu"
+    [20]=>
+    string(11) "wp-sanitize"
+    [21]=>
+    string(7) "wp-a11y"
+    [22]=>
+    string(22) "jquery-ui-autocomplete"
+    [23]=>
+    string(16) "jquery-ui-slider"
+    [24]=>
+    string(18) "jquery-touch-punch"
+    [25]=>
+    string(4) "iris"
+    [26]=>
+    string(15) "wp-color-picker"
+    [27]=>
+    string(10) "underscore"
+    [28]=>
+    string(9) "shortcode"
+    [29]=>
+    string(8) "backbone"
+    [30]=>
+    string(7) "wp-util"
+    [31]=>
+    string(11) "wp-backbone"
+    [32]=>
+    string(12) "media-models"
+    [33]=>
+    string(11) "wp-plupload"
+    [34]=>
+    string(18) "jquery-ui-sortable"
+    [35]=>
+    string(15) "wp-mediaelement"
+    [36]=>
+    string(14) "wp-api-request"
+    [37]=>
+    string(11) "media-views"
+    [38]=>
+    string(12) "media-editor"
+    [39]=>
+    string(16) "media-audiovideo"
+    [40]=>
+    string(8) "mce-view"
+    [41]=>
+    string(13) "imgareaselect"
+    [42]=>
+    string(10) "image-edit"
+  }
+  ["concat"]=>
+  string(0) ""
+  ["concat_version"]=>
+  string(0) ""
+  ["do_concat"]=>
+  bool(false)
+  ["print_html"]=>
+  string(0) ""
+  ["print_code"]=>
+  string(0) ""
+  ["ext_handles"]=>
+  string(0) ""
+  ["ext_version"]=>
+  string(0) ""
+  ["default_dirs"]=>
+  array(2) {
+    [0]=>
+    string(13) "/wp-admin/js/"
+    [1]=>
+    string(16) "/wp-includes/js/"
+  }
+  ["registered"]=>
+  array(273) {
+    ["utils"]=>
+    object(_WP_Dependency)#8244 (8) {
+      ["handle"]=>
+      string(5) "utils"
+      ["src"]=>
+      string(28) "/wp-includes/js/utils.min.js"
+      ["deps"]=>
+      array(0) {
+      }
+      ["ver"]=>
+      bool(false)
+      ["args"]=>
+      NULL
+      ["extra"]=>
+      array(1) {
+        ["data"]=>
+        string(75) "var userSettings = {"url":"\/","uid":"1","time":"1627785930","secure":"1"};"
+      }
+      ["textdomain"]=>
+      NULL
+      ["translations_path"]=>
+      NULL
+    }
+    ["common"]=>
+    object(_WP_Dependency)#8245 (8) {
+      ["handle"]=>
+      string(6) "common"
+      ["src"]=>
+      string(26) "/wp-admin/js/common.min.js"
+      ["deps"]=>
+      array(3) {
+        [0]=>
+        string(6) "jquery"
+        [1]=>
+        string(11) "hoverIntent"
+        [2]=>
+        string(5) "utils"
+      }
+      ["ver"]=>
+      bool(false)
+      ["args"]=>
+      int(1)
+      ["extra"]=>
+      array(1) {
+        ["data"]=>
+        string(438) "var commonL10n = {"warnDelete":"B\u1ea1n s\u1eafp x\u00f3a v\u0129nh vi\u1ec5n nh\u1eefng m\u1ee5c n\u00e0y kh\u1ecfi trang web c\u1ee7a b\u1ea1n.\nH\u00e0nh \u0111\u1ed9ng n\u00e0y kh\u00f4ng th\u1ec3 ho\u00e0n t\u00e1c.\n 'H\u1ee7y' \u0111\u1ec3 d\u1eebng, 'OK' \u0111\u1ec3 x\u00f3a.","dismiss":"B\u1ecf qua th\u00f4ng b\u00e1o n\u00e0y ","collapseMenu":"Thu nh\u1ecf menu ch\u00ednh","expandMenu":"M\u1edf r\u1ed9ng menu ch\u00ednh"};"
+      }
+      ["textdomain"]=>
+      NULL
+      ["translations_path"]=>
+      NULL
+    }
+    ["wp-sanitize"]=>
+    object(_WP_Dependency)#8246 (8) {
+      ["handle"]=>
+      string(11) "wp-sanitize"
+      ["src"]=>
+      string(34) "/wp-includes/js/wp-sanitize.min.js"
+      ["deps"]=>
+      array(0) {
+      }
+      ["ver"]=>
+      bool(false)
+      ["args"]=>
+      int(1)
+      ["extra"]=>
+      array(0) {
+      }
+      ["textdomain"]=>
+      NULL
+      ["translations_path"]=>
+      NULL
+    }
+    ["wp-a11y"]=>
+    object(_WP_Dependency)#8247 (8) {
+      ["handle"]=>
+      string(7) "wp-a11y"
+      ["src"]=>
+      string(30) "/wp-includes/js/wp-a11y.min.js"
+      ["deps"]=>
+      array(2) {
+        [0]=>
+        string(6) "jquery"
+        [1]=>
+        string(11) "wp-sanitize"
+      }
+      ["ver"]=>
+      bool(false)
+      ["args"]=>
+      int(1)
+      ["extra"]=>
+      array(0) {
+      }
+      ["textdomain"]=>
+      NULL
+      ["translations_path"]=>
+      NULL
+    }
+    ["sack"]=>
+    object(_WP_Dependency)#8248 (8) {
+      ["handle"]=>
+      string(4) "sack"
+      ["src"]=>
+      string(30) "/wp-includes/js/tw-sack.min.js"
+      ["deps"]=>
+      array(0) {
+      }
+      ["ver"]=>
+      string(5) "1.6.1"
+      ["args"]=>
+      int(1)
+      ["extra"]=>
+      array(0) {
+      }
+      ["textdomain"]=>
+      NULL
+      ["translations_path"]=>
+      NULL
+    }
+    ["quicktags"]=>
+    object(_WP_Dependency)#8249 (8) {
+      ["handle"]=>
+      string(9) "quicktags"
+      ["src"]=>
+      string(32) "/wp-includes/js/quicktags.min.js"
+      ["deps"]=>
+      array(0) {
+      }
+      ["ver"]=>
+      bool(false)
+      ["args"]=>
+      int(1)
+      ["extra"]=>
+      array(1) {
+        ["data"]=>
+        string(1779) "var quicktagsL10n = {"closeAllOpenTags":"\u0110\u00f3ng t\u1ea5t c\u1ea3 c\u00e1c th\u1ebb","closeTags":"\u0111\u00f3ng th\u1ebb","enterURL":"\u0110i\u1ec1n \u0111\u01b0\u1eddng d\u1eabn","enterImageURL":"\u0110i\u1ec1n \u0111\u01b0\u1eddng d\u1eabn c\u1ee7a \u1ea3nh","enterImageDescription":"\u0110i\u1ec1n m\u00f4 t\u1ea3 c\u1ee7a \u1ea3nh","textdirection":"h\u01b0\u1edbng \u0111\u1ecdc v\u0103n b\u1ea3n","toggleTextdirection":"Chuy\u1ec3n \u0111\u1ed5i h\u01b0\u1edbng \u0111\u1ecdc v\u0103n b\u1ea3n c\u1ee7a b\u1ed9 so\u1ea1n th\u1ea3o","dfw":"Ch\u1ebf \u0111\u1ed9 vi\u1ebft ch\u1ed1ng xao nh\u00e3ng","strong":"\u0110\u1eadm","strongClose":"\u0110\u00f3ng nh\u00e3n \u0111\u1eadm","em":"Nghi\u00eang","emClose":"\u0110\u00f3ng nh\u00e3n nghi\u00eang","link":"Th\u00eam \u0111\u01b0\u1eddng d\u1eabn","blockquote":"Tr\u00edch d\u1eabn","blockquoteClose":"\u0110\u00f3ng nh\u00e3n d\u1ea5u nh\u00e1y k\u00e9p","del":"V\u0103n b\u1ea3n \u0111\u00e3 x\u00f3a (g\u1ea1ch ngang gi\u1eefa ch\u1eef)","delClose":"\u0110\u00f3ng nh\u00e3n v\u0103n b\u1ea3n \u0111\u00e3 x\u00f3a","ins":"V\u0103n b\u1ea3n \u0111\u00e3 ch\u00e8n","insClose":"\u0110\u00f3ng th\u1ebb v\u0103n b\u1ea3n \u0111\u00e3 ch\u00e8n","image":"Ch\u00e8n \u1ea3nh","ul":"Danh s\u00e1ch li\u1ec7t k\u00ea \u0111\u01b0\u1ee3c \u0111\u00e1nh s\u1ed1","ulClose":"\u0110\u00f3ng nh\u00e3n danh s\u00e1ch \u0111\u01b0\u1ee3c k\u00ed hi\u1ec7u","ol":"Danh s\u00e1ch \u0111\u01b0\u1ee3c \u0111\u00e1nh s\u1ed1","olClose":"\u0110\u00f3ng nh\u00e3n danh s\u00e1ch \u0111\u01b0\u1ee3c \u0111\u00e1nh s\u1ed1","li":"M\u1ee5c danh s\u00e1ch","liClose":"\u0110\u00f3ng nh\u00e3n m\u1ee5c danh s\u00e1ch","code":"M\u00e3","codeClose":"\u0110\u00f3ng nh\u00e3n m\u00e3","more":"Ch\u00e8n th\u1ebb \u0110\u1ecdc Th\u00eam"};"
+      }
+      ["textdomain"]=>
+      NULL
+      ["translations_path"]=>
+      NULL
+    }
+    ["colorpicker"]=>
+    object(_WP_Dependency)#8250 (8) {
+      ["handle"]=>
+      string(11) "colorpicker"
+      ["src"]=>
+      string(34) "/wp-includes/js/colorpicker.min.js"
+      ["deps"]=>
+      array(1) {
+        [0]=>
+        string(9) "prototype"
+      }
+      ["ver"]=>
+      string(5) "3517m"
+      ["args"]=>
+      NULL
+      ["extra"]=>
+      array(0) {
+      }
+      ["textdomain"]=>
+      NULL
+      ["translations_path"]=>
+      NULL
+    }
+    ["editor"]=>
+    object(_WP_Dependency)#8251 (8) {
+      ["handle"]=>
+      string(6) "editor"
+      ["src"]=>
+      string(26) "/wp-admin/js/editor.min.js"
+      ["deps"]=>
+      array(2) {
+        [0]=>
+        string(5) "utils"
+        [1]=>
+        string(6) "jquery"
+      }
+      ["ver"]=>
+      bool(false)
+      ["args"]=>
+      int(1)
+      ["extra"]=>
+      array(1) {
+        ["after"]=>
+        array(2) {
+          [0]=>
+          bool(false)
+          [1]=>
+          string(39) "window.wp.oldEditor = window.wp.editor;"
+        }
+      }
+      ["textdomain"]=>
+      NULL
+      ["translations_path"]=>
+      NULL
+    }
+    ["clipboard"]=>
+    object(_WP_Dependency)#8252 (8) {
+      ["handle"]=>
+      string(9) "clipboard"
+      ["src"]=>
+      string(32) "/wp-includes/js/clipboard.min.js"
+      ["deps"]=>
+      array(0) {
+      }
+      ["ver"]=>
+      bool(false)
+      ["args"]=>
+      int(1)
+      ["extra"]=>
+      array(0) {
+      }
+      ["textdomain"]=>
+      NULL
+      ["translations_path"]=>
+      NULL
+    }
+    ["wp-fullscreen-stub"]=>
+    object(_WP_Dependency)#8253 (8) {
+      ["handle"]=>
+      string(18) "wp-fullscreen-stub"
+      ["src"]=>
+      string(38) "/wp-admin/js/wp-fullscreen-stub.min.js"
+      ["deps"]=>
+      array(0) {
+      }
+      ["ver"]=>
+      bool(false)
+      ["args"]=>
+      int(1)
+      ["extra"]=>
+      array(0) {
+      }
+      ["textdomain"]=>
+      NULL
+      ["translations_path"]=>
+      NULL
+    }
+    ["wp-ajax-response"]=>
+    object(_WP_Dependency)#8254 (8) {
+      ["handle"]=>
+      string(16) "wp-ajax-response"
+      ["src"]=>
+      string(39) "/wp-includes/js/wp-ajax-response.min.js"
+      ["deps"]=>
+      array(1) {
+        [0]=>
+        string(6) "jquery"
+      }
+      ["ver"]=>
+      bool(false)
+      ["args"]=>
+      int(1)
+      ["extra"]=>
+      array(1) {
+        ["data"]=>
+        string(203) "var wpAjax = {"noPerm":"","broken":"C\u00f3 l\u1ed7i g\u00ec \u0111\u00f3 \u0111\u00e3 x\u1ea3y ra."};"
+      }
+      ["textdom…
