@@ -1,4 +1,5 @@
 https://core.trac.wordpress.org/browser/tags/5.8/src/wp-includes/functions.wp-scripts.php#L20
+https://core.trac.wordpress.org/browser/tags/5.8/src/wp-includes/class.wp-scripts.php
 
 // add_filter( 'wp_scripts', 'control_wp_scripts', 99);
 
