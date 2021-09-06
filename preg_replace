@@ -5,4 +5,8 @@ return  preg_replace("/\r\n|\r|\n/", '\\r', $value);
 
 <!DOCTYPE html>\r<html>\r<head>\r<title>Page Title</title>\r</head>\r<body data-rsssl=1>\r\r<h1>2</h1>\r<p>This is a paragraph.</p>\r\r</body>\r</html>
 
+
+liveRoom.contentWindow.document.write(editor.getValue());
+liveRoom.contentWindow.document.close();
+
 OK
