@@ -1,0 +1,17 @@
+<?php 
+/*
+ * Template Name: json
+ */
+
+?>
+<?php
+$array = array(
+   "version" => "4.0",
+   "details_url" => "http://w-shadow.com/files/example-theme-updates/details.html",
+   "download_url" => "http://w-shadow.com/files/example-theme-updates/example-theme.zip"
+);
+$json= json_encode($array, JSON_PRETTY_PRINT);
+$json = str_replace("\\/", "/", $json);
+header('Content-Type: application/json');
+print_r($json);
+?>
