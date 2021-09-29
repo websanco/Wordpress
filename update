@@ -1,0 +1,43 @@
+vi /etc/security/limits.conf
+
+ /etc/nginx/nginx.conf
+ worker_rlimit_nofile    20000;
+ https://www.cyberciti.biz/faq/linux-unix-nginx-too-many-open-files/
+ 
+ ulimit -Hn
+ulimit -Sn
+ vi /etc/sysctl.conf
+ 
+ 
+ sysctl -p
+ https://help.directadmin.com/item.php?id=508
+
+ /etc/init.d/mysqld
+ 
+ Xoas bo doan nay de hien thi
+/*Control Classes*/
+::-webkit-scrollbar {
+  display: none;
+}
+
+function users_can_register_signup_filter() {
+    $registration = get_site_option('registration');
+    if ( $registration == 'all' || $registration == 'user' )
+        return true;
+
+    return false;
+}
+add_filter('option_users_can_register', 'users_can_register_signup_filter');
+
+Fix tran dung luong mysql
+
+du -hs /var/lock | sort -rh | head -n 10
+du -hs /var/lib/mysql/* | sort -rh | head -n 10
+du -hs /var/yp/ | sort -rh | head -n 10
+du -hs /var/spool/ | sort -rh | head -n 10
+
+OPTIMIZE TABLE wp_23_options
+https://help.directadmin.com/item.php?id=559
+
+
+/usr/local/directadmin/scripts/hostname.sh server.name-cdn.com
